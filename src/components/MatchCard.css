@@ -1,0 +1,199 @@
+.match-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.match-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+  border-color: var(--upcoming);
+}
+
+.match-card.is-live {
+  border-left: 4px solid var(--live, #dc2626);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 10px;
+}
+
+.series-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+}
+
+.badge-row {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.format-badge {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  color: white;
+}
+
+.format-badge.TEST {
+  background: var(--test, #7c3aed);
+}
+
+.format-badge.ODI {
+  background: var(--odi, #0284c7);
+}
+
+.format-badge.T20 {
+  background: var(--t20, #ea580c);
+}
+
+.status-badge {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: var(--border);
+  color: var(--text-primary);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.status-badge.Live {
+  background: var(--accent-bg, rgba(220, 38, 38, 0.1));
+  color: var(--live, #dc2626);
+  border: 1px solid rgba(220, 38, 38, 0.2);
+}
+
+.status-badge.Upcoming {
+  background: rgba(37, 99, 235, 0.1);
+  color: var(--upcoming, #2563eb);
+  border: 1px solid rgba(37, 99, 235, 0.2);
+}
+
+.status-badge.Toss {
+  background: rgba(217, 119, 6, 0.1);
+  color: #ea580c;
+  border: 1px solid rgba(217, 119, 6, 0.2);
+}
+
+.status-badge.Completed {
+  background: rgba(22, 163, 74, 0.1);
+  color: var(--result, #16a34a);
+  border: 1px solid rgba(22, 163, 74, 0.2);
+}
+
+.status-badge.Stumps {
+  background: rgba(75, 85, 99, 0.1);
+  color: #4b5563;
+  border: 1px solid rgba(75, 85, 99, 0.2);
+}
+
+[data-theme='dark'] .status-badge.Toss {
+  color: #fb923c;
+}
+
+[data-theme='dark'] .status-badge.Stumps {
+  color: #9ca3af;
+}
+
+.live-pulse {
+  width: 6px;
+  height: 6px;
+  background-color: var(--live, #dc2626);
+  border-radius: 50%;
+  display: inline-block;
+  animation: pulse-animation 1.5s infinite;
+}
+
+@keyframes pulse-animation {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 4px rgba(220, 38, 38, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(220, 38, 38, 0);
+  }
+}
+
+.teams-row-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.team-score-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.team-details {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.team-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  object-fit: contain;
+  padding: 2px;
+}
+
+.team-shortname {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.team-score {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.card-footer-status {
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px dashed var(--border);
+}
+
+.status-message {
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--text-secondary);
+  font-weight: 500;
+  display: block;
+}
